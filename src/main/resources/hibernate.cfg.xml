@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<!--  O hibernate config é para configurar o hibernate. Já o persistence é para o JPA.
+Se estiver usando o hibernate com o JPA vai precisar definir os dois.  -->
+
+<hibernate-configuration>
+    <!--  <session-factory>
+        <property name="connection.datasource">java:/comp/env/jdbc/oracleFatec</property>
+        <property name="jndi.class">weblogic.jndi.WLInitialContextFactory</property>
+        <property name="hibernate.transaction.manager_lookup_class">org.hibernate.transaction.WeblogicTransactionManagerLookup</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+        <property name="transaction.factory_class">org.hibernate.transaction.JTATransactionFactory</property>
+        
+        <mapping class="com.br.svab.model.User" />
+    </session-factory> -->
+    
+    <session-factory>
+	  <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+	  <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
+	  <property name="hibernate.connection.username">system</property>
+	  <property name="hibernate.connection.password">system</property>
+	  <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+	  <property name="hibernate.default_schema">xe</property>
+	  <property name="show_sql">true</property>
+
+		<!-- Mapeando classes -->
+		<mapping class="com.br.svab.model.User" />
+	</session-factory>
+</hibernate-configuration>
